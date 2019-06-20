@@ -1,0 +1,23 @@
+---
+apiVersion: 1.0.0
+metadata:
+  name: golang
+components:
+  -
+    type: chePlugin
+    id: ms-vscode/go/latest
+    memoryLimit: 512Mi
+  -
+    type: dockerimage
+    image: golang:1.12.4-stretch
+    command: ['sleep']
+    args: ['infinity']
+    env:
+      - name: GOPATH
+        value: /go:/projects
+      - name: GOCACHE
+        value: /tmp/.cache
+      - name: PS1
+        value: $(echo ${0})\\$
+    memoryLimit: 512Mi
+    mountSources: true
