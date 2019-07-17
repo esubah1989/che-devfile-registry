@@ -1,0 +1,65 @@
+---
+apiVersion: 1.0.0
+metadata:
+  name: Wazi
+components:
+  -
+    type: chePlugin
+    id: ms-vscode/go/latest
+    memoryLimit: 512Mi
+  -
+    type: dockerimage
+    image: golang:1.12.4-stretch
+    command: ['sleep']
+    args: ['infinity']
+    env:
+  default:
+    recipe:
+      contentType: application/x-yaml
+      type: compose
+      content: |
+        services:
+          machine-exec:
+            image: 'wsskeleton/che-machine-exec:latest'
+            mem_limit: 536870912
+          theia:
+            image: 'quay.io/esubah/wazi:latest'
+            mem_limit: 1073741824
+            depends_on:
+              - machine-exec
+    machines:
+      theia:
+        env:
+          CHE_MACHINE_NAME: theia
+          HOSTED_PLUGIN_HOSTNAME: 0.0.0.0
+        installers: []
+        volumes:
+          projects:
+            path: "/projects"
+        servers:
+          theia:
+            path: "/"
+            protocol: http
+            port: '3100'
+            attributes:
+              type: ide
+          theia-dev:
+            protocol: http
+            port: '3130'
+            attributes:
+              type: ide-dev
+        attributes:
+          memoryLimitBytes: '2147483648'
+      machine-exec:
+        env: {}
+        installers: []
+        volumes: {}
+        servers:
+          machine-exec:
+            protocol: ws
+            port: '4444'
+            attributes:
+              type: terminal
+        attributes: {}
+    memoryLimit: 512Mi
+    mountSources: true
