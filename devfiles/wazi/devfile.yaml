@@ -13,7 +13,7 @@ attributes:
 components:
   -
     type: chePlugin
-    reference: https://raw.githubusercontent.com/PrasangAPrajapati/IBM-Z-Dev-Stack-Che/master/zopeneditor.yaml
+    reference: https://raw.githubusercontent.com/esubah1989/che-devfile-registry/master/devfiles/wazi/zopeneditor.yaml
     alias: ibm-z-open-editor
   -
     type: chePlugin
