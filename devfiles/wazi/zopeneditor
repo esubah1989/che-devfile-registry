@@ -1,0 +1,23 @@
+apiVersion: v2
+publisher: ibm
+name: zopeneditor
+version: latest
+type: VS Code extension
+displayName: Language Support for COBOL and PL1
+title: Language Support for COBOL and PL1 by IBM
+description: COBOL and PL1 Linting, Intellisense, formatting, refactoring
+  and more...
+icon: https://www.eclipse.org/che/images/logo-eclipseche.svg
+repository: https://github.com/IBM/zopeneditor-about.git
+category: Language
+firstPublicationDate: "2019-10-03"
+spec:
+  containers:
+  - image: "docker.io/eclipse/che-remote-plugin-runner-java11:7.3.0"
+    name: vscode-ibm-zopeneditor
+    memoryLimit: "1500Mi"
+    volumes:
+    - mountPath: "/home/theia/.m2"
+      name: m2
+  extensions:
+  - http://rtpgsa.ibm.com/projects/w/wazi/current/vs-code/zopeneditor-20191119-014018.vsix
