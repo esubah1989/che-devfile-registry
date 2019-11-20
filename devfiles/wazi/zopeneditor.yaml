@@ -20,4 +20,4 @@ spec:
     - mountPath: "/home/theia/.m2"
       name: m2
   extensions:
-  - https://github.com/esubah1989/che-devfile-registry/releases/tag/first/zopeneditor-20191119-014018.vsix
+  - https://github.com/esubah1989/che-devfile-registry/releases/download/first/zopeneditor-20191119-014018.vsix
