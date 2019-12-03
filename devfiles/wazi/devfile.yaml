@@ -16,10 +16,6 @@ components:
     reference: https://raw.githubusercontent.com/esubah1989/che-devfile-registry/master/devfiles/wazi/zopeneditor.yaml
     alias: ibm-z-open-editor
   -
-    type: chePlugin
-    reference: https://raw.githubusercontent.com/PrasangAPrajapati/IBM-Z-Dev-Stack-Che/master/zowe.yaml
-    alias: zowe
-  -
     type: dockerimage
     alias: ibm-z
     image: quay.io/eclipse/che-java11-gradle:nightly
